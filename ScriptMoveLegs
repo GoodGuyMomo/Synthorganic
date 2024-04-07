@@ -1,0 +1,26 @@
+import bpy
+import math
+
+# Function to move the leg bones along their local Y and Z axes
+def move_legs(leg_bones, y_translation, z_translation):
+    # Access the armature object (change 'Armature' to your armature object name)
+    armature_obj = bpy.data.objects.get('Armature')
+    if not armature_obj:
+        print("Armature object not found.")
+        return
+    
+    # Check if bones exist
+    for bone_name in leg_bones:
+        if bone_name not in armature_obj.pose.bones:
+            print(f"Bone '{bone_name}' not found.")
+            return
+
+    # Move the leg bones along their local Y and Z axes
+    for bone_name in leg_bones:
+        bone = armature_obj.pose.bones[bone_name]
+        bone.location.y -= y_translation
+        bone.location.z -= z_translation
+
+# Example usage: Move the leg bones along their local Y and Z axes
+leg_bones = ["control_foot.L", "control_foot.R"]  # Replace with your actual bone names
+move_legs(leg_bones, 0.5, -0.2)  # Move by 0.5 units along the local Y-axis and -0.2 units along the local Z-axis
