@@ -1,0 +1,9 @@
+#To connect blender to external ide (put the following into Blender Scripting)
+'''
+filename = "/full/path/to/myscript.py"
+
+Example: C://Users/Loren/Documents/College/Senior Year/Semester 2/Software Engineering/SpyderToBlender.py
+
+exec(compile(open(filename).read(), filename, 'exec'))
+
+'''
