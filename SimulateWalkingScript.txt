@@ -1,0 +1,59 @@
+import bpy
+import math
+import time
+
+# Function to move the control_foot bones to simulate walking
+def simulate_walking(steps, lift_height, swing_angle):
+    # Access the armature object (change 'Armature' to your armature object name)
+    armature_obj = bpy.data.objects.get('Armature')
+    if not armature_obj:
+        print("Armature object not found.")
+        return
+    
+    # Define leg bones
+    left_control_foot = armature_obj.pose.bones.get("control_foot.L")
+    right_control_foot = armature_obj.pose.bones.get("control_foot.R")
+    if not left_control_foot or not right_control_foot:
+        print("Left or right control foot bone not found.")
+        return
+    
+    # Define parameters
+    animation_duration = 1.0  # Duration of each step in seconds
+    lift_duration = animation_duration * 0.2  # Duration of lifting the leg
+    swing_duration = animation_duration * 0.8  # Duration of swinging the leg
+    rest_duration = 0.5  # Duration of rest between steps
+    total_duration = steps * (lift_duration + swing_duration + rest_duration)
+
+    # Iterate through steps
+    for _ in range(steps):
+        # Lift the left leg
+        for i in range(int(lift_duration * 60)):
+            left_control_foot.location.z += lift_height / (lift_duration * 60)
+            bpy.context.scene.frame_set(bpy.context.scene.frame_current + 1)
+            time.sleep(1 / bpy.context.scene.render.fps)
+        
+        # Swing the left leg forward
+        for i in range(int(swing_duration * 60)):
+            left_control_foot.rotation_euler.y -= swing_angle / (swing_duration * 60)
+            bpy.context.scene.frame_set(bpy.context.scene.frame_current + 1)
+            time.sleep(1 / bpy.context.scene.render.fps)
+
+        # Swing the left leg backward
+        for i in range(int(swing_duration * 60)):
+            left_control_foot.rotation_euler.y += swing_angle / (swing_duration * 60)
+            bpy.context.scene.frame_set(bpy.context.scene.frame_current + 1)
+            time.sleep(1 / bpy.context.scene.render.fps)
+        
+        # Lower the left leg
+        for i in range(int(lift_duration * 60)):
+            left_control_foot.location.z -= lift_height / (lift_duration * 60)
+            bpy.context.scene.frame_set(bpy.context.scene.frame_current + 1)
+            time.sleep(1 / bpy.context.scene.render.fps)
+        
+        # Rest
+        for i in range(int(rest_duration * 60)):
+            bpy.context.scene.frame_set(bpy.context.scene.frame_current + 1)
+            time.sleep(1 / bpy.context.scene.render.fps)
+
+# Example usage: Simulate walking for 5 steps with a lift height of 0.2 units and swing angle of 20 degrees
+simulate_walking(5, 0.2, math.radians(20))
