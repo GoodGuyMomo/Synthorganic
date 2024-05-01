@@ -1,7 +1,3 @@
-# Comments from Dr. Gupta
-
-
-
 # Synthorganic
 The Synthorganic Project is an innovative project aimed at transforming the functionality of prosthetic legs through the integration of artificial intelligence (AI). This GitHub repository houses the source code, documentation, and resources related to the development and implementation of the adaptive prosthetics optimization system. The project is designed in TensorFlow, an open-source machine learning platform, and visualized using Blender, a 3D computer graphics software tool. The AI model is built in three progressive phases: walking on a flat surface, walking on incline/decline surfaces, and walking on varying terrains.
 
