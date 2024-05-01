@@ -15,8 +15,8 @@ Robotic Legs Integration: The repository includes resources related to construct
 
 How to Use:
 
+**This project was developed in phases and is broken down by Sprints, but all essential files can also be located under the Blender and TensorFlow branches.**
+
 Refer to the documentation provided within the Paperwork branch for detailed instructions on setting up and running the AI model.
 You can explore the codebase for insights into the TensorFlow implementation and integration testing software.
 Contribute to the project by providing feedback, reporting issues, or submitting pull requests.
-
-This project was developed in phases and is broken up by Sprints.
