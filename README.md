@@ -1,6 +1,6 @@
 # Blender
 
-**This sprint contains the essential Blender files used throughout all sprints. These files include the following:**
+**This branch contains the essential Blender files used throughout all sprints. These files include the following:**
 
 - Legs Blender file
 - Scripts that control leg movement
