@@ -48,7 +48,7 @@ optimizer = tf.keras.optimizers.Adam(learning_rate)
 loss_function = tf.keras.losses.MeanSquaredError()
 
 # Dummy input and output data for demonstration
-'''Write not this is random numbers but in theory we would use blender and take in the force of 
+'''Right now these are random numbers but in theory, we would use blender and take in the force of 
 gravity as well as the angle of the knee joint as inputs and we would give it the output of the
 force measured on the thigh and calf part of the leg.'''
 input_data = np.random.rand(100, input_size) #this would be gravity and the angle of the knee joint
